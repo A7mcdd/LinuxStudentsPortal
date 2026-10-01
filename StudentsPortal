@@ -19,7 +19,7 @@ do
 
 case $input in
   1) ./addStudent ;;
-  2) ./modfiyStudent ;;
+  2) ./modifyStudent ;;
   3) ./searchStudent ;;
   4) ./listStudents ;;
   5) echo;  echo "Goodbye!"; echo; exit 0;;
