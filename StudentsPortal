@@ -1,0 +1,30 @@
+touch students
+input=""
+
+while [ "$input" != "5" ]
+do
+ echo;echo
+ echo "====== Students Portal ======"
+ echo
+ echo " 1) Add student"
+ echo " 2) Modify student"
+ echo " 3) Search student"
+ echo " 4) List students"
+ echo " 5) Exit"
+ echo 
+ echo "============================="
+ echo 
+ echo "Please enter your choice:"
+ read input
+
+case $input in
+  1) ./addStudent ;;
+  2) ./modfiyStudent ;;
+  3) ./searchStudent ;;
+  4) ./listStudents ;;
+  5) echo;  echo "Goodbye!"; echo; exit 0;;
+  *) echo; echo "Invaild choice."
+ esac
+
+done
+

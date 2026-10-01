@@ -1,0 +1,89 @@
+while true; do
+
+echo;echo 
+echo "====== Search Student Menu ======"
+echo
+echo " 1) Search by ID"
+echo " 2) Search by Name"
+echo " 3) Return to Main Menu"
+echo 
+echo "================================="
+echo;echo
+
+echo "Enter your choice:"
+read search_choice
+
+case $search_choice in
+ 1)
+  echo
+  echo "Enter Student ID to search:"
+  read id
+
+  result=$(grep "^$id:" students)
+
+  if [ -z "$result" ]; then
+   echo "Student ID not found!"
+  else
+   echo;echo
+   echo "------------ Student Found ------------"
+   echo
+   echo "ID:      $(echo "$result" | cut -d: -f1)"
+   echo "Name:    $(echo "$result" | cut -d: -f2)"
+   echo "DOB:     $(echo "$result" | cut -d: -f3)"
+   echo "Email:   $(echo "$result" | cut -d: -f4)"
+   echo
+   echo "---------------------------------------"
+   echo;echo
+  fi;;
+
+ 2)
+  echo "Search by:"
+  echo "1) First Name"
+  echo "2) Last Name"
+  read name_choice
+ 
+
+  case $name_choice in
+   1)
+    echo
+    echo "Enter name or part of it to search:"
+    read name_part
+    fnames=$(cut -d: -f2 students | cut -d' ' -f1 | grep -i "$name_part")
+    search_results=$(for fn in $fnames; do grep -i ":$fn " students; done | sort -t: -k2);;
+   2)
+    echo
+    echo "Enter name or part of it to search:"
+    read name_part
+    lnames=$(cut -d: -f2 students | cut -d' ' -f2 | grep -i "$name_part")
+    search_results=$(for ln in $lnames; do  grep -i " $ln:" students; done | sort -t: -k2);;
+   *) 
+    echo "Invalid choice."
+    search_results="invalid";;
+  esac
+  
+  #echo
+  #echo "Enter name or part of it to search:"
+  #read name_part
+  #search_results=$(grep -i "$name_part" students | sort -t: -k2) #we can also do pipe (tr ':' ' ')
+  
+  if [ "$search_results" = "invalid" ]; then
+   : #nothing to do
+  elif [ -z "$search_results" ]; then
+   echo "No matching students found!"
+  else
+   echo;echo
+   echo "------------ Matching Students (Sorted by name) ------------"
+   echo
+   echo "$search_results"
+   echo
+   echo "------------------------------------------------------------"
+   echo;echo
+  fi;;
+
+ 3)
+  echo; echo "Returning to Main Menu..."; break;;
+
+ *)
+  echo; echo "Invalid choice.";;
+esac
+done

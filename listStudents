@@ -1,0 +1,55 @@
+while true; do
+
+echo "=============== List Students Menu ==============="
+echo
+echo " 1) List sorted by ID number"
+echo " 2) List sorted by Full Name"
+echo " 3) List sorted by Date of Birth (Unique)"
+echo " 4) Return to Main Menu"
+echo 
+echo "=================================================="
+echo
+
+echo "Enter your choice:"
+read list_choice
+
+
+case $list_choice in
+1)
+ echo;echo
+ echo "--------------- Students Sorted by ID ----------------"
+ echo
+ sort -t: -k1 -n students
+ echo
+ echo "------------------------------------------------------"
+ echo;echo
+ ;;
+2) 
+ echo;echo
+ echo "-------------- Students Sorted by Name ---------------"
+ echo
+ sort -t: -k2 students
+ echo
+ echo "------------------------------------------------------"
+ echo;echo
+ ;;
+3)
+ echo;echo
+ echo "-------------- Students Sorted by DOB ---------------"
+ echo
+ sort -t: -k3 -u  students
+ echo
+ echo "-----------------------------------------------------"
+ echo;echo
+;;
+4)
+  echo
+  echo "Returning to Main Menu..."
+  break
+ ;;
+
+ *)
+  echo "Invalid choice."
+  ;;
+esac
+done
