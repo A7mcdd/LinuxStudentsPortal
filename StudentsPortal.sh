@@ -18,10 +18,10 @@ do
  read input
 
 case $input in
-  1) ./addStudent ;;
-  2) ./modifyStudent ;;
-  3) ./searchStudent ;;
-  4) ./listStudents ;;
+  1) ./addStudent.sh ;;
+  2) ./modifyStudent.sh ;;
+  3) ./searchStudent.sh ;;
+  4) ./listStudents.sh ;;
   5) echo;  echo "Goodbye!"; echo; exit 0;;
   *) echo; echo "Invaild choice."
  esac

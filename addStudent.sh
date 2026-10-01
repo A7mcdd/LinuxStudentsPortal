@@ -14,7 +14,7 @@ while true; do
     continue;;
   esac
 
-  checkExit=$(grep "^$id:" students | cut -d: -f1 )
+  checkExit=$(grep "^$id:" students.sh | cut -d: -f1 )
   if [ -n "$checkExit" ]; then
    echo "Erorr: ID already exists!"
    echo
@@ -61,7 +61,7 @@ while true; do
  idpart=$(echo $id | cut -c3-4)
  email="${firstname}_${idpart}@birzeit.edu"
  
- echo "$id:$name:$date:$email" >> students
+ echo "$id:$name:$date:$email" >> students.sh
  echo
  echo "Students added successfully!" 
  echo

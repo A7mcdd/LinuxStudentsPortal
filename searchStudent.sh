@@ -19,7 +19,7 @@ case $search_choice in
   echo "Enter Student ID to search:"
   read id
 
-  result=$(grep "^$id:" students)
+  result=$(grep "^$id:" students.sh)
 
   if [ -z "$result" ]; then
    echo "Student ID not found!"
@@ -48,14 +48,14 @@ case $search_choice in
     echo
     echo "Enter name or part of it to search:"
     read name_part
-    fnames=$(cut -d: -f2 students | cut -d' ' -f1 | grep -i "$name_part")
-    search_results=$(for fn in $fnames; do grep -i ":$fn " students; done | sort -t: -k2);;
+    fnames=$(cut -d: -f2 students.sh | cut -d' ' -f1 | grep -i "$name_part")
+    search_results=$(for fn in $fnames; do grep -i ":$fn " students.sh; done | sort -t: -k2);;
    2)
     echo
     echo "Enter name or part of it to search:"
     read name_part
-    lnames=$(cut -d: -f2 students | cut -d' ' -f2 | grep -i "$name_part")
-    search_results=$(for ln in $lnames; do  grep -i " $ln:" students; done | sort -t: -k2);;
+    lnames=$(cut -d: -f2 students.sh | cut -d' ' -f2 | grep -i "$name_part")
+    search_results=$(for ln in $lnames; do  grep -i " $ln:" students.sh; done | sort -t: -k2);;
    *) 
     echo "Invalid choice."
     search_results="invalid";;

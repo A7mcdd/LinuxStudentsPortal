@@ -84,12 +84,12 @@ id:Full Name:dd/mm/yyyy:email@birzeit.edu
 
 2. **Make the scripts executable**
    ```bash
-   chmod +x StudentsPortal addStudent modifyStudent searchStudent listStudents
+   chmod +x StudentsPortal.sh addStudent.sh modifyStudent.sh searchStudent.sh listStudents.sh
    ```
 
 3. **Run the main menu**
    ```bash
-   ./StudentsPortal
+   ./StudentsPortal.sh
    ```
 
 4. Follow the on-screen menu to add, modify, search, or list students.

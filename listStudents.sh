@@ -19,7 +19,7 @@ case $list_choice in
  echo;echo
  echo "--------------- Students Sorted by ID ----------------"
  echo
- sort -t: -k1 -n students
+ sort -t: -k1 -n students.sh
  echo
  echo "------------------------------------------------------"
  echo;echo
@@ -28,7 +28,7 @@ case $list_choice in
  echo;echo
  echo "-------------- Students Sorted by Name ---------------"
  echo
- sort -t: -k2 students
+ sort -t: -k2 students.sh
  echo
  echo "------------------------------------------------------"
  echo;echo
@@ -37,7 +37,7 @@ case $list_choice in
  echo;echo
  echo "-------------- Students Sorted by DOB ---------------"
  echo
- sort -t: -k3 -u  students
+ sort -t: -k3 -u  students.sh
  echo
  echo "-----------------------------------------------------"
  echo;echo
